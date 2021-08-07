@@ -22,6 +22,10 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./app/index.js",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+  },
   module: {
     rules: [
       {
@@ -38,16 +42,39 @@ module.exports = {
       },
     ],
   },
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
-  },
+
   plugins: [new HtmlWebpackPlugin()],
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
 };
 
 ```
+the webpack config file is a simple js file which exports an object . 
+in the above file the entry and output attribute are quite clear .
 
+## loaders 
+( loaders are things that need to be processed or loaded before the actual bundeling starts) in the module attributes rules array . for a loader entry the targeted files are selected by the test attribute and the loader through the use attribute 
+```
+ {
+     test : \targetted-files\ 
+     use :  loader-to-be-used
+ }
+```
+hear we want to load svg (svg-inline-loader), css ("style-loader", "css-loader") and and transpile out es6 code the vanilla javascript (babel-loader) 
 
+we can use multiple loaders as we can see for css the style-loader is dependent on css-loader . the loading order of the loaders are form the right so css-loader will load first 
+and style-loader will load later 
+note that all the loaders and plugins are node modules 
+we can also exclude files or folders in loader 
+
+```
+{
+    test: /\.(js)$/,
+    use: "babel-loader",
+    exclude: "node_modules" ,
+}
+```
+this will exclude the node_modules folder from being transpiled 
+## plugins 
+plugins attribute takes in a array of plugins ,in the above file  `HtmlWebpackPlugin` plugin inject the bundeled files in an html file in the output dir otherwise we would have to crate it manually 
 # config a react project with webpack from scratch 
 
