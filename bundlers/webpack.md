@@ -8,10 +8,10 @@
 - the before stuffs are like converting mordern js into browser compatible js , rsolve module loading order , loading css , svg etc files (which are done by loaders component)
 - and stuff after the module bundels are like injecting the bundeled files into a html (which are done by plugins component )
 ## The basic components of webpack are 
-- entry (defines the entry point) 
-- output (defines the output dir)
-- loaders (things to do before bundeling the files)
-- plugins (thisng to do after bundeling the files)
-- mode (development mode or porduction mode )
+- `entry` (defines the entry point) 
+- `output` (defines the output dir)
+- `loaders` (things to do before bundeling the files)
+- `plugins` (thisng to do after bundeling the files)
+- `mode` (development mode or porduction mode )
 
 
