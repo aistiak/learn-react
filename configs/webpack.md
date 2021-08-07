@@ -76,5 +76,7 @@ we can also exclude files or folders in loader
 this will exclude the node_modules folder from being transpiled 
 ## plugins 
 plugins attribute takes in a array of plugins ,in the above file  `HtmlWebpackPlugin` plugin inject the bundeled files in an html file in the output dir otherwise we would have to crate it manually 
+## mode 
+the mode colud be either development or production . the production mode is hignly optimized and minified where the development mode is more forgiving 
 # config a react project with webpack from scratch 
 
